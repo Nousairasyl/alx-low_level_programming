@@ -1,34 +1,29 @@
-/*
- * File: 101-natural.c
- * Auth: Vincent Kip
- * Desc: Computes the sum of all natural numbers below 1024 that are
- *       multiples of 3 or 5, and prints the result to the console.
- */
-
 #include <stdio.h>
 
 /**
- * main - Entry point
+ * main - Prints first 50 Fibonacci numbers, starting with 1 and 2,
+ *        separated by a comma followed by a space.
  *
- * Return: Always 0 (Success)
+ * Return: Always 0.
  */
 int main(void)
 {
-        int i, sum = 0;
+	int count;
+	unsigned long fib1 = 0, fib2 = 1, sum;
 
-        /* Loop through all numbers below 1024 */
-        for (i = 0; i < 1024; i++)
-        {
-                /* Check if the number is a multiple of 3 or 5 */
-                if ((i % 3) == 0 || (i % 5) == 0)
-                {
-                        /* If so, add it to the sum */
-                        sum += i;
-                }
-        }
+	for (count = 0; count < 50; count++)
+	{
+		sum = fib1 + fib2;
+		printf("%lu", sum);
 
-        /* Print the sum to the console */
-        printf("%d\n", sum);
+		fib1 = fib2;
+		fib2 = sum;
 
-        return (0);
+		if (count == 49)
+			printf("\n");
+		else
+			printf(", ");
+	}
+
+	return (0);
 }
