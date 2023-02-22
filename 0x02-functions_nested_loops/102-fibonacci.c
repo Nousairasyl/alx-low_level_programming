@@ -1,53 +1,34 @@
 /*
+ * File: 101-natural.c
+ * Auth: Vincent Kip
+ * Desc: Computes the sum of all natural numbers below 1024 that are
+ *       multiples of 3 or 5, and prints the result to the console.
+ */
 
-         * File: 101-natural.c
+#include <stdio.h>
 
-         * Auth: vincent kip
+/**
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
+ */
+int main(void)
+{
+        int i, sum = 0;
 
-         */
-
-
-
-        #include <stdio.h>
-
-
-
-        /**
-
-         * main - Lists all the natural numbers below 1024 (excluded)
-
-         *        that are multiples of 3 or 5.
-
-         *
-
-         * Return: Always 0.
-
-         */
-
-        int main(void)
-
+        /* Loop through all numbers below 1024 */
+        for (i = 0; i < 1024; i++)
         {
-
-                int i, sum = 0;
-
-
-
-                for (i = 0; i < 1024; i++)
-
+                /* Check if the number is a multiple of 3 or 5 */
+                if ((i % 3) == 0 || (i % 5) == 0)
                 {
-
-                        if ((i % 3) == 0 || (i % 5) == 0)
-
-                                sum += i;
-
+                        /* If so, add it to the sum */
+                        sum += i;
                 }
-
-
-
-                printf("%d\n", sum);
-
-
-
-                return (0);
-
         }
+
+        /* Print the sum to the console */
+        printf("%d\n", sum);
+
+        return (0);
+}
