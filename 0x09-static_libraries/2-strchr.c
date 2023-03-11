@@ -1,10 +1,21 @@
-#include "main.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <ctype.h>
-#include <string.h>
+/**
+ * _strchr - a function that locates a character in a string
+ *
+ * @s: pointer to our string array input
+ * @c: character to locate from input array
+ *
+ * Return: first occurence of charatcer or null if not found
+*/
 
 char *_strchr(char *s, char c)
 {
-    return strchr(s, c);
+	while (*s != '\0')
+	{
+		if (*s == c)
+			return (s);
+		s++;
+	}
+	if (*s == c)
+		return (s);
+	return ('\0');
 }
