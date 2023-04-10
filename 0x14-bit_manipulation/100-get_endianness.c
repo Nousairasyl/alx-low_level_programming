@@ -1,10 +1,7 @@
-int get_endianness(void)
-{
-    unsigned int test = 1;
+#include <stdio.h>
 
-    if ((*(char *)&test) & 1) {
-        return 1; // little endian
-    } else {
-        return 0; // big endian
-    }
+int get_endianness() {
+    int x = 1;
+    char *c = (char*) &x;
+    return (int) *c;
 }
