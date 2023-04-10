@@ -1,5 +1,6 @@
 /**
- * set_bit - Sets a bit in an unsigned long int
+ * set_bit - Sets the bit at a given index in an unsigned long integer
+ *
  * @n: Pointer to the number to be modified
  * @index: Index of the bit to be set
  *
@@ -7,14 +8,10 @@
  */
 int set_bit(unsigned long int *n, unsigned int index)
 {
-    if (n == NULL)
+    if (!n || index >= CHAR_BIT * sizeof(*n))
         return (-1);
 
-    unsigned long int mask = 1UL << index;
+    *n |= 1UL << index;
 
-    if (index >= sizeof(unsigned long int) * 8)
-        return (-1);
-
-    *n |= mask;
     return (1);
 }
